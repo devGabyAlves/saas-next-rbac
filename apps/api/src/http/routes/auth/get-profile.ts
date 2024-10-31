@@ -4,6 +4,7 @@ import { z } from 'zod'
 
 import { auth } from '@/http/middlewares/auth'
 import { BadRequestError } from '@/http/routes/_errors/bad-request-error'
+
 import { prisma } from '@/lib/prisma'
 
 export async function getProfile(app: FastifyInstance) {
