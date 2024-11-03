@@ -36,7 +36,9 @@ export async function updateOrganization(app: FastifyInstance) {
 
       async (request, reply) => {
         const { slug } = request.params
+
         const userId = await request.getCurrentUserId()
+        
         const { membership, organization } =
           await request.getUserMembership(slug)
 
