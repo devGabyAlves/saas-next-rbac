@@ -54,7 +54,18 @@ export async function getMembers(app: FastifyInstance) {
           )
         }
 
-        const members = await prisma.member.findMany({
+        type MemberWithUser = {
+          id: string
+          role: 'ADMIN' | 'MEMBER' | 'BILLING'
+          user: {
+            id: string
+            name: string | null
+            email: string
+            avatarUrl: string | null
+          }
+        }
+
+        const members: MemberWithUser[] = await prisma.member.findMany({
           select: {
             id: true,
             role: true,
