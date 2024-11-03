@@ -21,6 +21,7 @@ import { getMembers } from '@/http/routes/members/get-members'
 import { createOrganization } from '@/http/routes/orgs/create-organization'
 import { createInvite } from '@/http/routes/invites/create-invite'
 import { getInvite } from '@/http/routes/invites/get-invite'
+import { getInvites } from './routes/invites/get-invites'
 import { getMembership } from '@/http/routes/orgs/get-membership'
 import { removeMember } from '@/http/routes/members/remove-member'
 import { updateMember } from '@/http/routes/members/update-member'
@@ -34,7 +35,6 @@ import { deleteProject } from '@/http/routes/projects/delete-project'
 import { getProject } from '@/http/routes/projects/get-project'
 import { getProjects } from '@/http/routes/projects/get-projects'
 import { updateProject } from '@/http/routes/projects/update-project'
-
 
 import { createAccount } from './routes/auth/create-account'
 
@@ -98,6 +98,7 @@ app.register(updateMember)
 app.register(removeMember)
 app.register(createInvite)
 app.register(getInvite)
+app.register(getInvites)
 
 app.listen({ port: env.SERVER_PORT }).then(() => {
   console.log('HTTP server running!')
